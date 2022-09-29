@@ -12,14 +12,14 @@ Winner = ""
 
 counter= 0
 
-#passing the file path
+# passing the file path
 csvpath = os.path.join("Resources","election_data.csv")
 
 
-#Reading the CSV file
+# Reading the CSV file
 with open(csvpath,'r') as votefile:
 
-#CSV reader specifies delimiter and variable that holds contents
+# CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(votefile,delimiter = ',')
 # skip the header
     next(csvreader)
