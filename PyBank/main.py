@@ -34,10 +34,12 @@ with open(budget_csv,'r') as csvfile:
         greatest_increase = max(revenue_change)
         greatest_decrease = min(revenue_change)
 
-    # find the corresponding increase and decrease date using the index
-        greatest_increase_date =str(date[revenue_change.index(greatest_increase)])
-        greatest_decrease_date = str(date[revenue_change.index(greatest_decrease)])
+        increase_index = revenue_change.index (greatest_increase)
+        decrease_index = revenue_change.index (greatest_decrease)
 
+    # find the corresponding increase and decrease date using the index
+        greatest_increase_date =str(date[increase_index +1])
+        greatest_decrease_date = str(date[decrease_index +1])
 # print the reesults to the terminal
 print("Finalcial Analysis \n\t" )
 print("----------------------------------------------------------------")
