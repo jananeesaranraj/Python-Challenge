@@ -21,14 +21,14 @@ with open(budget_csv,'r') as csvfile:
     for row in csvreader:
     #appending the date and revenue to the list
         date.append(row[0])
-        revenue.append (float(row[1]))
+        revenue.append (int(row[1]))
 
     # loop through the revenue list to find the changes
     for i in range(1,len(revenue)):
     # append the difference in revenue to the new list
         revenue_change.append(revenue[i] - (revenue[i-1]))
     # calculate the average revenue change
-        avr_rev_change = sum(revenue_change)/len(revenue_change)
+        avr_rev_change = round(sum(revenue_change)/len(revenue_change),2)
 
     # find the greatest increase and greatest decrease
         greatest_increase = max(revenue_change)
@@ -50,9 +50,9 @@ print("Total: $" + str(sum(revenue)))
 print("\t")
 print("Average Change: $" + str(avr_rev_change))
 print("\t")
-print("Greatest Increase in Profits: "+ str(greatest_increase_date) + "$(" + str(greatest_increase)+ ")")
+print("Greatest Increase in Profits: "+ str(greatest_increase_date) + " $(" + str(greatest_increase)+ ")")
 print("\t")
-print("Greatest Decrease in Profits: "+ str(greatest_decrease_date) + "$("+ str(greatest_decrease)+ ")")
+print("Greatest Decrease in Profits: "+ str(greatest_decrease_date) + " $("+ str(greatest_decrease)+ ")")
 
 # specify the file to write to
 output_file = os.path.join("Analysis","bank.txt")
@@ -66,8 +66,8 @@ with open(output_file,'w') as text:
     text.write("Total Months: " + str(len(date)) + "\n\n")
     text.write("Total : $"+ str(sum(revenue)) + "\n\n")
     text.write("Average Change: $" + str(avr_rev_change) + "\n\n")
-    text.write("Greatest Increase in Profits: "+ str(greatest_increase_date) + "$("+str(greatest_increase) +")" + "\n\n")
-    text.write("Greatest Decrease in Profits: "+ str(greatest_decrease_date) + "$("+str(greatest_decrease )+")" + "\n\n")
+    text.write("Greatest Increase in Profits: "+ str(greatest_increase_date) + " $("+str(greatest_increase) +")" + "\n\n")
+    text.write("Greatest Decrease in Profits: "+ str(greatest_decrease_date) + " $("+str(greatest_decrease )+")" + "\n\n")
     
 
 

@@ -8,8 +8,7 @@ vote_count = 0
 double_count = 0
 candidate= []
 winner_vote = 0
-Winner = ""
-
+winner = ""
 counter= 0
 
 # passing the file path
@@ -22,7 +21,7 @@ with open(csvpath,'r') as votefile:
 # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(votefile,delimiter = ',')
 # skip the header
-    next(csvreader)
+    header =  next(csvreader)
 
 # read each row of data after the header
     for row in csvreader:
